@@ -1,3 +1,19 @@
+## Query Execution Order
+# you must understand the logical order in which a database executes a query. It's not the order in which you write it.
+
+1> FROM / JOIN: First, the database determines the source data by looking at the FROM and JOIN clauses.
+
+2> WHERE: Next, it filters individual rows based on the WHERE clause.
+
+3> GROUP BY: Then, it takes all the rows that passed the filter and bundles them into groups.
+
+4> HAVING: After grouping, it filters the groups themselves based on the HAVING clause.
+
+5> SELECT: Only now does it process the SELECT list. This is where aggregate functions like COUNT(), SUM(), AVG() are calculated for each group.
+
+6> ORDER BY: Finally, after the result set is complete, it sorts the final rows.
+
+
 ## LeetCode 1661
 
 1661. Average Time of Process per Machine
@@ -185,3 +201,13 @@ Used for identifiers (like table or column names). You typically only need to us
 
 Example: SELECT "First Name" FROM Employees;
 
+
+## Leetcode 1251
+https://leetcode.com/problems/average-selling-price/description/?envType=study-plan-v2&envId=top-sql-50
+
+## Leetcode 1633
+# the sql order at the top was for this question
+https://leetcode.com/problems/percentage-of-users-attended-a-contest/description/?envType=study-plan-v2&envId=top-sql-50
+
+## Leetcode 1211
+https://leetcode.com/problems/queries-quality-and-percentage/description/?envType=study-plan-v2&envId=top-sql-50
